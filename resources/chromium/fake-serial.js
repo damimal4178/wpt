@@ -420,6 +420,11 @@ class FakeSerialService {
       return {port: null};
     }
   }
+
+  async forgetPort(token) {
+    this.ports_.delete(Number(token.low));
+    this.stop();
+  }
 }
 
 export const fakeSerialService = new FakeSerialService();
